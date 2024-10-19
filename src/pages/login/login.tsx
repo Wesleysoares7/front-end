@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ButtonPrimary from "../../components/buttonPrimary";
 import InputField from "../../components/inputField";
 import { FormProvider, useForm } from "react-hook-form";
@@ -16,22 +16,18 @@ const email = () => {
     formState: { errors },
   } = methods;
 
-  const redirectToRegister = () => {
-    navigate("/register");
-  };
-
   return (
     <FormProvider {...methods}>
-      <div className="ml-8 mt-3">
-        <h1 className="font-bold text-4xl">Hello,</h1>
-        <p className="text-2xl">Welcome Back</p>
-      </div>
-      <div className="mt-20 flex flex-col justify-center items-center">
-        <form
-          onSubmit={handleSubmit(handleLogin)}
-          className="flex flex-col gap-12 rounded-lg"
-        >
-          <div className="flex flex-col gap-10">
+      <div className="flex flex-col h-screen justify-center w-[80%] mx-auto gap-10">
+        <div className="flex flex-col h-full">
+          <form
+            onSubmit={handleSubmit(handleLogin)}
+            className="flex h-full flex-col gap-4 justify-center"
+          >
+            <div className="pb-10">
+              <h1 className="font-bold text-4xl">Hello,</h1>
+              <p className="text-2xl text-netural_colour-gray1">Welcome Back</p>
+            </div>
             <InputField placeholder="email" type="text" formName="email" />
             {errors.email && (
               <p className="text-red-500">{errors.email.message}</p>
@@ -44,21 +40,18 @@ const email = () => {
             {errors.password && (
               <p className="text-red-500">{errors.password.message}</p>
             )}
-          </div>
-          <div className="flex flex-col gap-2">
             <ButtonPrimary type="submit">Entrar</ButtonPrimary>
+          </form>
+          <div className="flex flex-col-reverse pb-2">
             <p className="text-center font-bold">
               Don’t have an account?{" "}
-              <button
-                onClick={redirectToRegister}
-                className="text-secondary-secondary100 mt-44"
-              >
+              <Link className="text-secondary-secondary100" to={"/register"}>
                 {" "}
                 Sign up
-              </button>
+              </Link>
             </p>
           </div>
-        </form>
+        </div>
       </div>
     </FormProvider>
   );

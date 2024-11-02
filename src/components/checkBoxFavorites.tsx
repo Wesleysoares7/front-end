@@ -13,15 +13,13 @@ const CheckBoxFavorites: React.FC<CheckboxProps> = ({
   setValue,
 }) => {
   const { handleFavorite } = useFavorites({ id, setValue, value });
+
   return (
-    <label className="z-10">
+    <label className="relative right-20">
       {value ? (
-        <AiFillHeart className="text-red-600 bg-netural_colour-gray4 rounded-sm text-3xl absolute right-1/2" />
+        <AiFillHeart className="text-red-500 text-2xl transition-colors duration-300" />
       ) : (
-        <AiOutlineHeart
-          className="text-zinc-300
-        text-3xl absolute right-1/2 "
-        />
+        <AiOutlineHeart className="text-gray-400 text-2xl transition-colors duration-300" />
       )}
       <input
         className="hidden"

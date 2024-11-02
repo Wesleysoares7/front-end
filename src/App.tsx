@@ -1,7 +1,8 @@
 import "./index.css";
+import Home from "./pages/home/home";
 
 function App() {
-  return <div className="bg-red-600">Teste</div>;
+  return <Home />;
 }
 
 export default App;

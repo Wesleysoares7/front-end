@@ -11,7 +11,7 @@ const InputField = ({ className, formName, ...props }: InputFieldProps) => {
     <input
       {...register(formName)}
       {...props}
-      className={`border-2 border-red-500 p-2 rounded ${className}`}
+      className={`h-14 rounded-lg border-2 border-gray-500 p-2 ${className}`}
     />
   );
 };

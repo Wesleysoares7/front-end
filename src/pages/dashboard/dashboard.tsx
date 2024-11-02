@@ -41,10 +41,10 @@ const Dashboard = () => {
           <FiSearch className="absolute text-gray-500 top-1/2 left-1 -translate-y-1/2" />
         </div>
       </div>
-      <Carousel className="basis-1/2">
-        <CarouselContent>
+      <Carousel className="w-full max-w-sm">
+        <CarouselContent className="-ml-1">
           {recipes.map((recipe) => (
-            <CarouselItem key={recipe.ID}>
+            <CarouselItem className="pl-2 basis-1/2" key={recipe.ID}>
               <RecipeCard recipe={recipe} />
             </CarouselItem>
           ))}

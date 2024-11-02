@@ -12,7 +12,7 @@ const RecipeCard = ({ recipe }: RecipeCardProps) => {
   const [isFavorite, setIsFavorite] = useState(false);
   return (
     <>
-      <div className="border-2 border-grey-500 rounded-md">
+      <div className="border-2 border-grey-500 rounded-md p-1">
         <CheckBoxFavorites
           id={String(recipe.ID)}
           value={isFavorite}

@@ -12,8 +12,11 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import ButtonPrimary from "@/components/buttonPrimary";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+  const navigate = useNavigate();
   const { recipes } = useContext(RecipesContext);
   // const { nextPage, previousPage } = useRecipes();
   const { user } = useContext(UserContext);
@@ -23,22 +26,38 @@ const Dashboard = () => {
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     getRecipesByName(event.target.value);
   };
+
   console.log(recipes[0]);
 
+  const handleFavorites = () => {
+    navigate("/favorites");
+  };
+
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 w-full px-2">
       <div className="flex flex-col gap-2 pl-6">
         <div className="font-bold text-2xl">
           Hello, <span>{user.name}</span>
         </div>
-        <div className="relative">
-          <input
-            placeholder="Search recipe"
-            type="text"
-            onChange={handleSearch}
-            className="border-2 border-gray-500 rounded-lg pl-6"
-          />
-          <FiSearch className="absolute text-gray-500 top-1/2 left-1 -translate-y-1/2" />
+        <div className="flex justify-between pr-4">
+          <div className="relative">
+            <input
+              placeholder="Search recipe"
+              type="text"
+              onChange={handleSearch}
+              className="border-2 border-gray-500 rounded-lg pl-6"
+            />
+            <FiSearch className="absolute text-gray-500 top-1/2 left-1 -translate-y-1/2" />
+          </div>
+          <div>
+            <ButtonPrimary
+              children="Favoritos"
+              width="w-auto"
+              paddingX="px-5"
+              height="h-7"
+              onClick={handleFavorites}
+            />
+          </div>
         </div>
       </div>
       <Carousel className="w-full max-w-sm">

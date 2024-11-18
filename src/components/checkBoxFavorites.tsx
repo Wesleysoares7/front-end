@@ -15,7 +15,7 @@ const CheckBoxFavorites: React.FC<CheckboxProps> = ({
   const { handleFavorite } = useFavorites({ id, setValue, value });
 
   return (
-    <label className="relative right-20">
+    <label className="relative">
       {value ? (
         <AiFillHeart className="text-red-500 text-2xl transition-colors duration-300" />
       ) : (

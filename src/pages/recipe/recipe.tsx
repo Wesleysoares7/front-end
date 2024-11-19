@@ -1,13 +1,15 @@
 import { useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useRecipes from "../../hooks/useRecipes";
 import { getUrlImage } from "../../util/utils";
 import RecipesContext from "../../context/recipesContext";
+import ButtonPrimary from "@/components/buttonPrimary";
 
 const Recipe = () => {
   const { id } = useParams();
   const { getRecipeById } = useRecipes();
   const { currentRecipe } = useContext(RecipesContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getRecipeById(Number(id));
@@ -23,6 +25,19 @@ const Recipe = () => {
 
   return (
     <div className="flex flex-col gap-6 p-6 max-w-4xl mx-auto">
+      <div className="flex justify-between px-4">
+        <div className="text-3xl font-bold">
+          <p>Let's cook</p>
+        </div>
+        <div className="text-base">
+          <ButtonPrimary
+            children="To Back"
+            width="w-auto"
+            paddingX="px-5"
+            onClick={() => navigate(-1)}
+          />
+        </div>
+      </div>
       <div className="flex flex-col items-center gap-4">
         <h1 className="text-3xl font-bold text-center">
           {currentRecipe.title}

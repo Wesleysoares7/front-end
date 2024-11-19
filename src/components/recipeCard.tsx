@@ -11,7 +11,7 @@ interface RecipeCardProps {
 const RecipeCard = ({ recipe }: RecipeCardProps) => {
   const [isFavorite, setIsFavorite] = useState(false);
   return (
-    <div className="border-2 border-gray-500 rounded-md p-1 w-44 h-60 flex flex-col justify-between">
+    <div className="border-2 bg-white border-gray-500 rounded-md p-1 w-44 h-60 flex flex-col justify-between">
       <CheckBoxFavorites
         id={String(recipe.ID)}
         value={isFavorite}

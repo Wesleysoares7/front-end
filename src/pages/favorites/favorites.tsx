@@ -28,9 +28,9 @@ const Favorites = () => {
   }, [user]);
 
   return (
-    <div className="flex flex-col gap-4 w-full px-2">
+    <div className="flex flex-col md:px-72 md:pt-10 gap-4 w-full px-2 bg-custom-bg bg-contain bg-center h-screen">
       <div className="flex flex-col gap-2 pl-6">
-        <div className="flex justify-between items-center font-bold text-2xl">
+        <div className="flex justify-between items-center font-bold text-2xl bg-white p-2 rounded-lg">
           Favorite
           <div className="text-base">
             <ButtonPrimary

@@ -1,11 +1,9 @@
 import { useContext } from "react";
 import useRecipes from "../../hooks/useRecipes";
-// import ButtonPrimary from "../../components/buttonPrimary";
 import RecipeCard from "../../components/recipeCard";
 import UserContext from "../../context/userContext";
 import useRedirectLogin from "../../hooks/useRedirectLogin";
 import RecipesContext from "../../context/recipesContext";
-// import InputField from "../../components/inputField";
 import { FiSearch } from "react-icons/fi";
 import {
   Carousel,
@@ -18,7 +16,6 @@ import { useNavigate } from "react-router-dom";
 const Dashboard = () => {
   const navigate = useNavigate();
   const { recipes } = useContext(RecipesContext);
-  // const { nextPage, previousPage } = useRecipes();
   const { user } = useContext(UserContext);
   const { getRecipesByName } = useRecipes();
   useRedirectLogin();
@@ -34,12 +31,15 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="flex flex-col gap-4 w-full px-2">
-      <div className="flex flex-col gap-2 pl-6">
+    <div className="flex flex-col md:items-center md:pt-10 gap-4 w-full px-2 bg-custom-bg bg-cover bg-center h-screen">
+      <div className="flex flex-col gap-2 pl-6 bg-white p-4 rounded-lg">
         <div className="font-bold text-2xl">
           Hello, <span>{user.name}</span>
         </div>
-        <div className="flex justify-between pr-4">
+        <div
+          className="flex justify-between md:gap-10
+         pr-4"
+        >
           <div className="relative">
             <input
               placeholder="Search recipe"
@@ -69,13 +69,6 @@ const Dashboard = () => {
           ))}
         </CarouselContent>
       </Carousel>
-      {/* <div className="flex gap-2">
-        <ButtonPrimary
-          children="Anterior"
-          onClick={previousPage}
-        ></ButtonPrimary>
-        <ButtonPrimary children="Próximo" onClick={nextPage}></ButtonPrimary>
-      </div> */}
     </div>
   );
 };
